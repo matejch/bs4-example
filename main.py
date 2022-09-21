@@ -3,20 +3,7 @@ import sys
 from detect import find_customer_subpage
 from extract import extract_company_info
 import csv
-
 import requests
-
-# TARGET_URL = "https://www.scale.com"
-# TARGET_URL = 'https://amplitude.com'
-
-
-# TARGET_URL ='https://www.pagerduty.com'
-# TARGET_URL ='https://www.gusto.com'
-TARGET_URL = 'https://www.rippling.com'
-# TARGET_URL ='https://metabase.com'
-# TARGET_URL ='https://posthog.com'
-# TARGET_URL ='https://mailchimp.com'
-# TARGET_URL ='https://convertkit.com'
 
 
 def save_to_csv(company_list, url):
@@ -44,10 +31,9 @@ if __name__ == '__main__':
 
     if len(sys.argv) != 2:
         print("Usage: python scrape.py http://www.company.com")
-        # sys.exit()
-        INPUT_URL = TARGET_URL
-    else:
-        INPUT_URL = sys.argv[1]
+        sys.exit()
+
+    INPUT_URL = sys.argv[1]
     print("fetching data from {}".format(INPUT_URL))
     headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
     result = requests.get(INPUT_URL, headers=headers)

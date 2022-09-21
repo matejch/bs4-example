@@ -1,5 +1,4 @@
 from bs4 import BeautifulSoup
-
 from constants import CUSTOMER_SUBPAGE_WORDS
 
 
